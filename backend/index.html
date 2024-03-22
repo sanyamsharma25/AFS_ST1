@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Verification</title>
+</head>
+<body>
+    <h1>User Verification</h1>
+    <div id="message"></div>
+    <script>
+        // Get query parameters from URL
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const error = urlParams.get('error');
+        const message = urlParams.get('message');
+
+        // Display error message if error parameter is present
+        if (error === 'true') {
+            document.getElementById('message').innerHTML = `<p>Error: ${message}</p>`;
+        } else {
+            // Display success message
+            document.getElementById('message').innerHTML = `<p>${message}</p>`;
+        }
+    </script>
+</body>
+</html>
